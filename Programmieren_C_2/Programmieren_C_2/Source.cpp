@@ -31,6 +31,30 @@ void pointer() {
 	printf("\\n %i", sizeof(primes));
 }	
 
+void aufgabe() {
+	/*Schreiben Sie ein Programm, das fünf Werte vom Typ double von der Tastatur
+	einliest und Sie in einem Array speichert. Berechnen Sie den Kehrwert jedes
+	Wertes ( der Kehrwert von x ist 1.0 / x) und speichern Sie diese in einem
+	separaten Array. Geben Sie jeden Kehrwert und die Summe aller Kehrwerte
+	auf der Konsole aus.*/
+	 
+	const int sizeOfArray = 5;
+	double werte[sizeOfArray];
+	double resultat[sizeOfArray];
+	double sum=0;
+	for (int i = 0; i < sizeof(werte) / sizeof(double); i++) {
+		printf("Geben Sie Wert %i ein:", i);
+		scanf_s("%lf", &werte[i]);
+		resultat[i] = 1 / (double)werte[i];
+	}
+	for (int i = 0; i < sizeof(werte) / sizeof(double); i++) {
+		printf("wert[%i] = %00lf der Kehrwert ist %00lf \n", i ,werte[i], resultat[i]);
+		sum += resultat[i];
+	}
+	printf("Summer der Kehrwerte = %lf", sum); 
+	getchar();
+}
+
 void main() {
 	/* Unterrichts Themen
 	Pointer
@@ -58,6 +82,7 @@ void main() {
 	Code
 
 	*/
-	pointer();
+	//pointer();
+	aufgabe();
 	getchar();
 }
