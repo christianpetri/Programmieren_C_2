@@ -6,18 +6,8 @@ c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmiere
 c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(6): warning C4101: 'result': unreferenced local variable
 c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(24): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type 'int *'
 c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(29): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'int *'
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): error C2131: expression did not evaluate to a constant
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): note: failure was caused by non-constant arguments or reference to a non-constant symbol
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): note: see usage of 'sizeOfArray'
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(42): error C2131: expression did not evaluate to a constant
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): note: failure was caused by non-constant arguments or reference to a non-constant symbol
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): note: see usage of 'sizeOfArray'
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(43): error C2131: expression did not evaluate to a constant
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): note: failure was caused by non-constant arguments or reference to a non-constant symbol
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(41): note: see usage of 'sizeOfArray'
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(45): warning C4018: '<': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(48): error C2440: 'type cast': cannot convert from 'double [sizeOfArray]' to 'double'
-  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(48): note: There is no context in which this conversion is possible
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(51): warning C4477: 'printf' : format string '%00lf' requires an argument of type 'double', but variadic argument 2 has type 'double *'
-c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(51): warning C4477: 'printf' : format string '%00lf' requires an argument of type 'double', but variadic argument 3 has type 'double *'
+c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(79): warning C4473: 'printf' : not enough arguments passed for format string
+  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(79): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  c:\users\chris\documents\github\programmieren_c_2\programmieren_c_2\programmieren_c_2\source.cpp(79): note: the missing variadic argument 1 is required by format string '%lf'
+  Programmieren_C_2.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Programmieren_C_2\Debug\Programmieren_C_2.exe
+  Programmieren_C_2.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Programmieren_C_2\Debug\Programmieren_C_2.pdb (Partial PDB)
