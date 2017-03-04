@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-
-
 void rechnen() {
 	float number1, number2, result;
 	char opt; 
@@ -59,26 +57,27 @@ void aufgabe() {
 		1 / (2 * 3 * 4), 1 / (4 * 5 * 6), 1 / (6 * 7 * 8) ... bis zu 1 / (200 * 201 * 202)
 		Schreiben Sie eine weitere Schleife, die das folgende errechnet : data[0] -
 		data[1] + data[2] - data[3] + ... - data[99].Multiplizieren Sie das Ergebnis
-		mit 4.0, fügen 3.0 und Geben Sie das Ergebnis auf der Konsole aus.
+		mit 4.0, fügen 3.0 dazu und Geben Sie das Ergebnis auf der Konsole aus.
 		Erkennen Sie die Wert, den Sie bekommen ?
+		PI
 	*/
 	double data[100];
-	double resultData = 0;
-	for (int i = 2; i <= 100; i+=2) {
-		data[i] = 1 / (double)((i)*(i + 1)*( i+ 2)); 
-	}
-	for (int i = 0; i < 100; i+=2) {
-		resultData += data[i];
-	}
-
-	for (int i = 1; i < 100; i+=2) {
-		resultData -= data[i];	 
-	}
+	double resultData = 0; 
+	for (int i = 0; i < 100; i++) {
+		data[i] = 1 / (double)((2 + 2 * i)*(3 + 2 * i)*(4 + 2 * i));
+	} 
+	for (int i = 0; i < 100; i++) { 
+		if (i % 2 == 0) {
+			resultData += data[i];
+		}
+		else {
+			resultData -= data[i];
+		} 
+	}  
 	resultData *= 4;
 	resultData += 3;
-	printf("Resultat data[] = %lf");
-
-		getchar();
+	printf("Resultat data[] = %lf",resultData);
+	getchar();
 }
 
 void main() {
