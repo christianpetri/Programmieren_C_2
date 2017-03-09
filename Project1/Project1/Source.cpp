@@ -53,13 +53,25 @@ int main(void)
 			}
 			for (int i = 0; i < 2; i++) {
 				if (
-					(playingfield[i] == 'o' && playingfield[i + 1] == 'o' && playingfield[i + 2] == 'o')
+					(playingfield[i] == 'o' && playingfield[i + 3] == 'o' && playingfield[i + 6] == 'o')
 					||
-					(playingfield[i] == 'x' && playingfield[i + 1] == 'x' && playingfield[i + 2] == 'x')
+					(playingfield[i] == 'x' && playingfield[i + 3] == 'x' && playingfield[i + 6] == 'x')
 					||
-					playingfield[i] == 'x' && playingfield[i + 3] == 'x' && playingfield[i + 6] == 'x')
+					(playingfield[i*3] == 'x' && playingfield[i*3 + 1] == 'x' && playingfield[i * 3 + 2] == 'x')
+					||
+					(playingfield[i * 3] == 'o' && playingfield[i * 3 +1] == 'o' && playingfield[i * 3+2] == 'o')
+					||
+					(playingfield[0] == 'x' && playingfield[4] == 'x' && playingfield[8] == 'x')
+					||
+					(playingfield[0] == 'o' && playingfield[4] == 'o' && playingfield[8] == 'o')
+					||
+					(playingfield[2] == 'x' && playingfield[4] == 'x' && playingfield[6] == 'x')
+					||
+					(playingfield[2] == 'o' && playingfield[4] == 'o' && playingfield[6] == 'o')
+					
 					) {
 					gameOver = 1;
+					printf("\nPlayer %u won!", playerNumber + 1);
 				}
 			}
 			printf("\n");
