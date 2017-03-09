@@ -28,17 +28,40 @@ int main(void)
 			}
 			printf("\n");
 		}
-		else {
-
-			printf("Player %u: Please enter a number between 1-9", playerNumber);
-			playerInput = -1;
-			scanf_s("%d", &playerInput);
-			while (playerInput < 0 && playerInput > 9) {
+		else { 
+			printf("\nPlayer %u: Please enter a number between 1-9 ", playerNumber + 1);
+			playerInput = 10;
+			scanf_s(" %u", &playerInput); 
+			if (playerInput < 0 && playerInput>9) {
 				puts("The Number must be between 1 and 9");
-				scanf_s("%d", &playerInput);
 			}
-			
+			/*
+			while (playerInput == 10) {
+				
+				scanf_s(" %u", &playerInput);	
+				printf(" hello %d", playerInput);
+			} 
+			*/
 			playerInput = abs(playerInput)-1;
+			if (!(playingfield[playerInput] == 'o') && !(playingfield[playerInput] == 'x')) {
+				if (playerNumber) {
+					playingfield[playerInput] = 'o';
+				}
+				else {
+					playingfield[playerInput] = 'x';
+				}
+			}
+			for (int i = 0; i < 2; i++) {
+				if (
+					(playingfield[i] == 'o' && playingfield[i + 1] == 'o' && playingfield[i + 2] == 'o')
+					||
+					(playingfield[i] == 'x' && playingfield[i + 1] == 'x' && playingfield[i + 2] == 'x')
+					||
+					playingfield[i] == 'x' && playingfield[i + 3] == 'x' && playingfield[i + 6] == 'x')
+					) {
+					gameOver = 1;
+				}
+			}
 			printf("\n");
 			for (int i = 0; i < 9; i++) { 
 				printf(" %4c", playingfield[i]);
@@ -50,8 +73,12 @@ int main(void)
 			getchar();
 		}
 		playerNumber++;
-		if (playerNumber > 2) {
-			playerNumber = 1;
+		if (playerNumber > 1) {
+			playerNumber = 0;
+		}
+		gameCounter++;
+		if (gameCounter > 8) {
+			gameOver = 1;
 		}
 	} 
 	//scanf_s(" %d", &input);
