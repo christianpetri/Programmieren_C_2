@@ -35,7 +35,7 @@ void aufgabe() {
 	Wertes ( der Kehrwert von x ist 1.0 / x) und speichern Sie diese in einem
 	separaten Array. Geben Sie jeden Kehrwert und die Summe aller Kehrwerte
 	auf der Konsole aus.*/
-	/* 
+	  
 	const int sizeOfArray = 5;
 	double werte[sizeOfArray];
 	double resultat[sizeOfArray];
@@ -43,14 +43,15 @@ void aufgabe() {
 	for (int i = 0; i < sizeof(werte) / sizeof(double); i++) {
 		printf("Geben Sie Wert %i ein:", i);
 		scanf_s("%lf", &werte[i]);
-		resultat[i] = 1 / (double)werte[i];
+		resultat[i] = 1.0 / werte[i];
 	}
 	for (int i = 0; i < sizeof(werte) / sizeof(double); i++) {
 		printf("wert[%i] = %00lf der Kehrwert ist %00lf \n", i ,werte[i], resultat[i]);
 		sum += resultat[i];
 	}
 	printf("Summer der Kehrwerte = %lf", sum); 
-	*/
+	getchar();
+	 
 	/*
 		Definieren Sie ein Array 'data' mit 100 Elementen vom Typ double.Schreiben
 		Sie eine Schleife, die die folgende Sequenz von Werten im Arrays speichert :
@@ -61,6 +62,7 @@ void aufgabe() {
 		Erkennen Sie die Wert, den Sie bekommen ?
 		PI
 	*/
+	/*
 	double data[100];
 	double resultData = 0; 
 	for (int i = 0; i < 100; i++) {
@@ -78,6 +80,7 @@ void aufgabe() {
 	resultData += 3;
 	printf("Resultat data[] = %lf",resultData);
 	getchar();
+	*/
 }
 
 void main() {

@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\chris\documents\github\programmieren_c_2\project1\project1\source.cpp(42): error C2065: 'MATH': undeclared identifier
+c:\users\chris\documents\github\programmieren_c_2\project1\project1\source.cpp(42): error C2228: left of '.abs' must have class/struct/union
+  c:\users\chris\documents\github\programmieren_c_2\project1\project1\source.cpp(42): note: type is 'unknown-type'
