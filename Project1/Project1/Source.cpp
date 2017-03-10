@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include<conio.h> 
-#include <math.h>
+#include <conio.h> 
 
 int getNumberFromPlayer() {
-	char *p, s[100] = { 0 };
+	char *p, s[100];
 	int n;
 	while (fgets(s, sizeof(s), stdin)) {
 		n = strtol(s, &p, 10);
@@ -20,27 +19,27 @@ int getNumberFromPlayer() {
 	}
 	return n;
 }
-bool isGameOver(char playingfield[], int playerNumber) {
+bool isGameOver(char playfield[], int playerNumber) {
 	for (int i = 0; i < 3; i++) {
 		if (
 			//horizontal
-			(playingfield[i] == 'o' && playingfield[i + 3] == 'o' && playingfield[i + 6] == 'o')
+			(playfield[i] == 'o' && playfield[i + 3] == 'o' && playfield[i + 6] == 'o')
 			||
-			(playingfield[i] == 'x' && playingfield[i + 3] == 'x' && playingfield[i + 6] == 'x')
+			(playfield[i] == 'x' && playfield[i + 3] == 'x' && playfield[i + 6] == 'x')
 			||
 			//vertical
-			(playingfield[i * 3] == 'x' && playingfield[i * 3 + 1] == 'x' && playingfield[i * 3 + 2] == 'x')
+			(playfield[i * 3] == 'x' && playfield[i * 3 + 1] == 'x' && playfield[i * 3 + 2] == 'x')
 			||
-			(playingfield[i * 3] == 'o' && playingfield[i * 3 + 1] == 'o' && playingfield[i * 3 + 2] == 'o')
+			(playfield[i * 3] == 'o' && playfield[i * 3 + 1] == 'o' && playfield[i * 3 + 2] == 'o')
 			||
 			//cross
-			(playingfield[0] == 'x' && playingfield[4] == 'x' && playingfield[8] == 'x')
+			(playfield[0] == 'x' && playfield[4] == 'x' && playfield[8] == 'x')
 			||
-			(playingfield[0] == 'o' && playingfield[4] == 'o' && playingfield[8] == 'o')
+			(playfield[0] == 'o' && playfield[4] == 'o' && playfield[8] == 'o')
 			||
-			(playingfield[2] == 'x' && playingfield[4] == 'x' && playingfield[6] == 'x')
+			(playfield[2] == 'x' && playfield[4] == 'x' && playfield[6] == 'x')
 			||
-			(playingfield[2] == 'o' && playingfield[4] == 'o' && playingfield[6] == 'o')
+			(playfield[2] == 'o' && playfield[4] == 'o' && playfield[6] == 'o')
 
 			) {
 			
@@ -51,40 +50,37 @@ bool isGameOver(char playingfield[], int playerNumber) {
 	}
 	return 0;
 }
-void drawPlayfield(char playingfield[]){
+void drawPlayfield(char playfield[]){
 	printf("\n");
 	for (int i = 0; i < 9; i++) {
-		printf(" %4c", playingfield[i]);
+		printf(" %3c", playfield[i]);
 		if (i == 2 || i == 5) {
 			printf("\n");
 		}
 	}
 	printf("\n");
 }
-
-int checkIfFieldIsOccupied(char playingfield[], int playerInput, int playerNumber) {
-	if (!(playingfield[playerInput] == 'o') && !(playingfield[playerInput] == 'x')) {
+int checkIfFieldIsOccupied(char playfield[], int playerInput, int playerNumber) {
+	if (!(playfield[playerInput] == 'o') && !(playfield[playerInput] == 'x')) {
 		if (playerNumber) {
-			playingfield[playerInput] = 'o';
+			playfield[playerInput] = 'o';
 		}
 		else {
-			playingfield[playerInput] = 'x';
+			playfield[playerInput] = 'x';
 		}
 		return 0;
 	}
 	else {
+		puts("Please enter an other number, this field is already occupied");
 		return 1;
 	}
 
 }
 
-
-int main(void)
-
-{ 
+void main(){ 
 	puts("Tick Tack Toe");
 	int playerNumber = 1;
-	char playingfield[9];
+	char playfield[9];
 	int playerInput; 
 	bool gameOver = 1;
 	int gameCounter = 0;
@@ -96,8 +92,8 @@ int main(void)
 			gameCounter = 0;
 			printf("\n");
 			for (int i = 0; i < 9; i++) {
-				playingfield[i] = i + 1 + 48; //ASCII 0 = 48
-				printf(" %4c", playingfield[i]);
+				playfield[i] = i + 1 + 48; //ASCII 0 = 48
+				printf(" %3c", playfield[i]);
 				if (i == 2 || i == 5) {
 					printf("\n");
 				}
@@ -105,25 +101,22 @@ int main(void)
 			printf("\n");
 		}
 		else { 
-			printf("\nPlayer %u: Please enter a number between 1-9 ", playerNumber + 1);
-			while (checkIfFieldIsOccupied(playingfield, playerInput, playerNumber)) {
-				playerInput = getNumberFromPlayer(); //9
-				playerInput -= 1;
-			} 
-			gameOver = isGameOver(playingfield, playerNumber);  
-			drawPlayfield(playingfield);
+			printf("\nPlayer %u: Please enter a number between 1-9 ", playerNumber);
+			do{
+				playerInput = getNumberFromPlayer()-1;  //-1 array[0-8]				 
+			} while (checkIfFieldIsOccupied(playfield, playerInput, playerNumber)); 
+			gameOver = isGameOver(playfield, playerNumber);  
+			drawPlayfield(playfield);  
+
+			playerNumber++;
+			if (playerNumber > 1)
+			playerNumber = 0; 
+
+			gameCounter++;
+			if (gameCounter > 9) 
+			gameOver = 1;
 			
 		}
-		playerNumber++;
-		if (playerNumber > 1) {
-			playerNumber = 0;
-		}
-		gameCounter++;
-		if (gameCounter > 8) {
-			gameOver = 1;
-		}
-	}  
-	getchar(); 
-	return 0;
+	}   
 }
 
