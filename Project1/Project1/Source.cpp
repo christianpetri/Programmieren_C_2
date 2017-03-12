@@ -9,7 +9,7 @@ int getNumberFromPlayer() {
 	while (fgets(s, sizeof(s), stdin)) {
 		n = strtol(s, &p, 10);
 		if (p == s || *p != '\n') {
-			printf("Please enter an integer between 1 to 9: ");
+			printf("Please enter only numbers ");
 		}
 		else if (n < 1 || n > 9) {
 			printf("Please enter an integer between 1 to 9: ");
@@ -19,7 +19,7 @@ int getNumberFromPlayer() {
 	}
 	return n;
 }
-bool isGameOver(char playfield[], int playerNumber) {
+bool isGameOver(char playfield[], int playerNumber, int gameCounter) {
 	for (int i = 0; i < 3; i++) {
 		if (
 			//horizontal
@@ -41,14 +41,20 @@ bool isGameOver(char playfield[], int playerNumber) {
 			||
 			(playfield[2] == 'o' && playfield[4] == 'o' && playfield[6] == 'o')
 
-			) {
-			
-			printf("\nPlayer %u won!", playerNumber + 1);
+			) { 
+			printf("\nPlayer %u won!\n", playerNumber + 1);
 			return 1;
 			break;
 		} 
+	} 
+	if (gameCounter > 7) {
+		return  1;
 	}
-	return 0;
+	else {
+		return 0;
+	}
+		
+	
 }
 void drawPlayfield(char playfield[]){
 	printf("\n");
@@ -73,8 +79,7 @@ int checkIfFieldIsOccupied(char playfield[], int playerInput, int playerNumber) 
 	else {
 		puts("Please enter an other number, this field is already occupied");
 		return 1;
-	}
-
+	} 
 }
 
 void main(){ 
@@ -88,33 +93,32 @@ void main(){
 		if (gameOver) {
 			//reset varibales
 			gameOver = 0;
-			playerNumber = 1;
+			playerNumber = 0;
 			gameCounter = 0;
-			printf("\n");
+			printf("---------------------------------------------------------------------\n\n");
 			for (int i = 0; i < 9; i++) {
 				playfield[i] = i + 1 + 48; //ASCII 0 = 48
 				printf(" %3c", playfield[i]);
-				if (i == 2 || i == 5) {
+				if (i == 2 || i == 5 || i == 8) {
 					printf("\n");
 				}
 			}
-			printf("\n");
+			puts("\nTo start the game please enter a number between 1-9 ");
+			 
 		}
 		else { 
-			printf("\nPlayer %u: Please enter a number between 1-9 ", playerNumber);
+			printf("\nPlayer %u: ", playerNumber + 1);
 			do{
 				playerInput = getNumberFromPlayer()-1;  //-1 array[0-8]				 
 			} while (checkIfFieldIsOccupied(playfield, playerInput, playerNumber)); 
-			gameOver = isGameOver(playfield, playerNumber);  
+			
 			drawPlayfield(playfield);  
+
+			gameOver = isGameOver(playfield, playerNumber, gameCounter++);
 
 			playerNumber++;
 			if (playerNumber > 1)
-			playerNumber = 0; 
-
-			gameCounter++;
-			if (gameCounter > 9) 
-			gameOver = 1;
+			playerNumber = 0;   
 			
 		}
 	}   
