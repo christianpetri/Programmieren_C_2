@@ -1,4 +1,4 @@
-﻿  Source.cpp
-c:\users\chris\documents\github\programmieren_c_2\project2_20170423\project2_20170423\source.cpp(67): warning C4101: 'counter': unreferenced local variable
-  Project2_20170423.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Project2_20170423\Debug\Project2_20170423.exe
-  Project2_20170423.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Project2_20170423\Debug\Project2_20170423.pdb (Partial PDB)
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project2_20170423.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Source.cpp
+  Project2_20170423.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Project2_20170423\Debug\Project2_20170323.exe
+  Project2_20170423.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Project2_20170423\Debug\Project2_20170323.pdb (Partial PDB)
