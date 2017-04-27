@@ -52,11 +52,11 @@ int main(){
 				}
 			}
 		} 
-			if (!found) {
-				strcpy(result[i], token);
-				counter[i] = 1;
-			}
-			found = 0;
+		if (!found) {
+			strcpy(result[i], token);
+			counter[i] = 1;
+		}
+		found = 0;
 		//puts(token);
 		token = strtok(NULL, delimiter);
 		i++;
@@ -72,6 +72,6 @@ int main(){
 			}
 		} 
 	} 
-	getchar(); //prevent program from closing
+	getchar(); //prevents program from closing
 	return 0;
 }

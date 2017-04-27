@@ -1,0 +1,3 @@
+﻿  Source.cpp
+c:\users\chris\documents\github\programmieren_c_2\20170427_programmieren_c_2_aufgabe\project1\source.cpp(27): error C3874: return type of 'main' should be 'int' instead of 'double'
+c:\users\chris\documents\github\programmieren_c_2\20170427_programmieren_c_2_aufgabe\project1\source.cpp(32): error C2040: 'result': 'double' differs in levels of indirection from 'char [100]'
