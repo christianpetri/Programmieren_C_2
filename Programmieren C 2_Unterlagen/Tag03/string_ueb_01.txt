@@ -1,0 +1,134 @@
+﻿Uebung zum Stoff "String":
+-------------------------
+
+Es soll ein Programm entwickelt werden, das einen Text von der
+Tastatur einliest und die Häufigkeit der Wörter ausgibt. Zum Beispiel
+würde der Text "Hallo Walter, hallo Erich" die folgende Auswertung
+ausgeben:
+
+>>
+hallo			2
+walter		1
+erich			1
+
+* Weitere Anforderungen:
+-----------------------
+
+Gross- und Kleinschreibung wird nicht beachtet. Wörter können entweder
+in Kleinbuchstaben oder in Grossbuchstaben konvetiert werden.
+
+Die maximale Textgrösse ist festgelegt und darf bei der Eingabe nicht
+überschritten werden. Es wird also kein dynamische Memory alloziert,
+wenn der eingegeben Text grösser ist, als der für den Text zur
+Verfügung stehende Speicher, z.B ein char array[LENGTH].
+
+Der Text soll solange eingelesen werden, bis der Benutzer eine
+Leerzeile eingibt.
+
+
+* Konzept:
+---------
+
+Mit fgets wird der Text eingelesen. Und zwar so lange, bis der String
+"\n" (Leerzeile) erkannt wird.
+
+Der eingegeben Text wird zunächst in einem separaten Array
+gespeichert wie z.B. 'text[TEXT_LENGTH]'
+
+Danach erfolgt das herauslesen der einzelnen Wörter.
+
+Die verschiedenen Trennzeichen (Delimiters) wie z.B. ' ', '.', ',',
+':', '!', '?', '(', ')'... sollen sicherstellen, dass nur Wörter in
+der Statistik ausgewertet werden.
+
+Die einzelnen Wörter werden in einem Array von Strings wie z.B.
+'char words[TOTAL_WORDS][WORD_LENGT]' eingelesen. Und zwar wird jedes
+Wort nur einmal darin gespeichert.
+
+Für die Statistik muss die Häufigkeit jedes Wortes gespeichert
+werden. Die Häufigkeit wird in einem separaten Array
+gespeichert wie z.B. 'int word_count[TOTAL_WORDS]'
+
+
+* Umsetzung Version 01:
+----------------------
+
+In der ersten Version wird das Einlesen des Textes und das Abspeichern
+in einem separatem Array implementiert.
+
+Ein Text kann mit mehreren Eingaben (New Line) eingegben werden. Alle
+Text-Teile werden zunächst im Buffer 'char buf[BUF_LENGTH]' gespeichert.
+
+// version 01 --------------------------------------------------------
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
+
+#define BUF_LENGTH 10
+#define TXT_LENGTH 1000
+
+void main()
+{
+  char text[TXT_LENGTH];
+  char buf[BUF_LENGTH];
+  bool end = false;
+
+  do {
+	 fgets(buf, BUF_LENGTH, stdin);
+	 if (strcmp(buf, "\n")== 0)
+		{
+		  end = true;    // Leerzeile, bedeutet das Ende der Texteingabe
+		}
+	 else
+		{
+		  for(int i=0; (buf[i] = (char)tolower(buf[i])) != '\0'; i++);  // konvertieren zu Kleinbuchstaben
+		  strcat(text, buf);
+		}
+  } while(!end);
+  printf("\n%s", text);
+
+}
+----------------------------------------------------------------------
+Frage(n): 
+Der Buffer 'buf' hat nur eine Grösse von 10 Zeichen. Das Programm
+funktioniert aber auch, wenn eine Text länger als 10 Zeichen
+ist. Weshalb? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
