@@ -29,7 +29,7 @@ Pointer speichert eine Memory Adresse
 void main() {
 
 	double lastResult = 0;
-	int runCalculator = 1;
+	int runCalculator = 1; 
 	while (runCalculator) {
 		char input[100] = { NULL };
 		char result[100] = { NULL };
@@ -37,12 +37,15 @@ void main() {
 		char operant[100] = { NULL };
 		double calResult = 0;
 		int digitCounter = 0;
-		int operantCounter = 0;
-		//strtod 
+		int operantCounter = 0; 
 
 		fgets(input, sizeof(input), stdin);
-		if (input == "ende") {
+		//printf("input=%s", input);
+
+		if( strcmp("ende\n", input) == 0) {
 			 runCalculator = 0; 
+			 puts("Have a nice day!");
+			 continue;
 		}
 		int j = 0;
 		for (int i = 0; i < sizeof(input); i++) {
@@ -51,53 +54,62 @@ void main() {
 				j++;
 			}
 		}
-		printf("input=%s", input);
-		printf("input=%s", result);
+
 		//double strtod(const char *str, char **endptr)       
 		char *str = result;
 		char *p = str;
 		while (*p) { // While there are more characters to process...
+			if (result[0] == '=' && digitCounter == 0) {
+				number[0] = lastResult;
+				//printf("%lf", number[0]);
+				digitCounter++;
+				p++;
+				continue;
+			} 
 			if (isdigit(*p)) { // Upon finding a digit, ...
 				number[digitCounter] = strtod(p, &p); // Read a number, ...
-													  //printf("%lf\n", number[digitCounter]); // and print it.
+				//printf("%lf", number[digitCounter]); // and print it.
 				digitCounter++;
 			}
-			else { // Otherwise, move on to the next character.
-				if (operant[0] == '=') {
-					number[0] = lastResult;
-					digitCounter++;
-				}
-				if (*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '=') {
+			else { // Otherwise, move on to the next character.				
+				if (*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '%') {
 					operant[operantCounter] = *p;
-					//printf("%c\n", *p); // and print it.
+					//printf(" %c ", *p); // and print it.
 					operantCounter++;
 				}
 				p++;
 			}
 		}
-		/*
-		if (operantCounter != digitCounter) {
-		if (operant[0] == '=') {
-		puts("please");
-		} else
+		//printf("\n%d + %d", digitCounter, operantCounter);
+		if (operantCounter != digitCounter-1 && (result[0] != '=' || operantCounter != digitCounter)) { 
+				puts("\nUps something went wrong!! Please try again\n");
+				continue; 
 		}
-		*/
-	 
+		for (int i = 0; i < operantCounter; i++) {
+			printf("(");
+		}
+		for (int i = 0; number[i]; i++) {
+			//printf("\n%d + %d", digitCounter, operantCounter);
+			if (i < 1) {
+				printf(" %lf %c ", number[i], operant[i]);
+			}
+			else {
+				printf("%lf ) %c ", number[i], operant[i]);
+			} 
+		}		 
+		calResult = number[0];
 		for (int i = 1; i < 100; i++) {
 			switch (operant[i - 1]) {
-			case '+':	calResult += number[i]; break;
-			case '-':	calResult -= number[i]; break;
-			case '*':	calResult *= number[i]; break;
-			case '/':	calResult /= number[i]; break;
-				//case '%':	printf(" = %d", (long)number1 % (long)number2); break;
+				case '+':	calResult += number[i]; break;
+				case '-':	calResult -= number[i]; break;
+				case '*':	calResult *= number[i]; break;
+				case '/':	calResult /= number[i]; break;
+				case '%':	calResult= long (calResult) % long(number[i]); break; 
 			}
 		}
 		lastResult = calResult;
-		printf(" = %lf", calResult);
-		puts("\n Please enter your calculation:\n");
+		printf("= %lf", calResult);
+		puts("\n\nPlease enter your calculation:\n");
 	}
-	
-	  
-	getchar();
-	 
+	getchar(); //prevents the window from closing, hit enter to close it
 }
