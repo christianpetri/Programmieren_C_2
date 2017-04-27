@@ -40,6 +40,7 @@ void main() {
 			j++;
 		}
 	}
+
 	printf("input=%s", input);
 	printf("input=%s", result);
 	getchar();
