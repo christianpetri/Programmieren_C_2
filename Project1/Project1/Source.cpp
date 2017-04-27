@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 /*Tag04 - Pointer und Array – Aufgaben
 1. Schreiben Sie das "Hat-Size" Programm "array_06.c" neu(siehe Stoff von Tag02).
@@ -26,11 +27,17 @@ Pointer speichert eine Memory Adresse
 */
 
 void main() {
-
-	//double result;
+		
+		
 	char input[100];
 	char result[100];
-	
+	double number[100];
+	char operant[100];
+	double calResult = 0 ;
+
+	int digitCounter=0;
+	int operantCounter=0;
+	//strtod 
 
 	fgets(input, sizeof(input), stdin);
 	int j = 0;
@@ -40,9 +47,28 @@ void main() {
 			j++;
 		}
 	}
-
 	printf("input=%s", input);
 	printf("input=%s", result);
+	//double strtod(const char *str, char **endptr)       
+	char *str = result;
+	char *p = str;
+	while (*p) { // While there are more characters to process...
+		if (isdigit(*p)) { // Upon finding a digit, ...
+			number[digitCounter] = strtod(p, &p); // Read a number, ...
+			printf("%lf\n", number[digitCounter]); // and print it.
+		}
+		else { // Otherwise, move on to the next character.
+			if (*p == '+' || *p == '-' || *p == '*' || *p == '/') {
+				operant[operantCounter] = *p;
+				printf("%c\n", *p); // and print it.
+			} 
+			p++;
+		}
+		digitCounter++;
+		operantCounter++; 
+	}
+	calResult = number[0];
+	  
 	getchar();
 	 
 }
