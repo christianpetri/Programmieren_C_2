@@ -16,7 +16,7 @@ int main() {
 		length = strnlen_s(buffer,buffer_size)+1;
 		satz[i] = (char*)malloc(length);
 		if (!satz[i]) {
-			
+			break;
 		}
 		strcpy_s(satz[0], length , buffer);
 		printf("%s", satz[i]); 

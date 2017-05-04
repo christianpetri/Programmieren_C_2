@@ -1,3 +1,3 @@
 ﻿  Source.cpp
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(11): error C3863: array type 'char [100]' is not assignable
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(12): error C3863: array type 'char [100]' is not assignable
+  20170504_Programmieren_C_Aufgabe.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\20170504_Programmieren_C_Aufgabe\20170504_Programmieren_C_Aufgabe\Debug\20170504_Programmieren_C_Aufgabe.exe
+  20170504_Programmieren_C_Aufgabe.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\20170504_Programmieren_C_Aufgabe\20170504_Programmieren_C_Aufgabe\Debug\20170504_Programmieren_C_Aufgabe.pdb (Partial PDB)
