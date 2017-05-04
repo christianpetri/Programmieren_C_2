@@ -1,3 +1,4 @@
 ﻿  Source.cpp
+c:\users\chris\documents\github\programmieren_c_2\project1\project1\source.cpp(71): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Project1.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Project1\Debug\Project1.exe
   Project1.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\Project1\Debug\Project1.pdb (Partial PDB)

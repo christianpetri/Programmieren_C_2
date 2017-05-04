@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 /*Tag04 - Pointer und Array – Aufgaben
 1. Schreiben Sie das "Hat-Size" Programm "array_06.c" neu(siehe Stoff von Tag02).
@@ -66,13 +67,14 @@ void main() {
 				p++;
 				continue;
 			} 
-			if (isdigit(*p)) { // Upon finding a digit, ...
+			double isDigit = strtod(p, &p);
+			if (isdigit(isDigit)) { // Upon finding a digit, ... // || *p == '-'
 				number[digitCounter] = strtod(p, &p); // Read a number, ...
 				//printf("%lf", number[digitCounter]); // and print it.
 				digitCounter++;
 			}
 			else { // Otherwise, move on to the next character.				
-				if (*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '%') {
+				if (*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '%' || *p == '^') {
 					operant[operantCounter] = *p;
 					//printf(" %c ", *p); // and print it.
 					operantCounter++;
@@ -81,10 +83,12 @@ void main() {
 			}
 		}
 		//printf("\n%d + %d", digitCounter, operantCounter);
+		/*
 		if (operantCounter != digitCounter-1 && (result[0] != '=' || operantCounter != digitCounter)) { 
 				puts("\nUps something went wrong!! Please try again\n");
 				continue; 
 		}
+		*/
 		for (int i = 0; i < operantCounter; i++) {
 			printf("(");
 		}
@@ -104,6 +108,7 @@ void main() {
 				case '-':	calResult -= number[i]; break;
 				case '*':	calResult *= number[i]; break;
 				case '/':	calResult /= number[i]; break;
+				case '^':	calResult= pow(calResult,number[i]); break;
 				case '%':	calResult= long (calResult) % long(number[i]); break; 
 			}
 		}
