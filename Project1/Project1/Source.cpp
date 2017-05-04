@@ -31,6 +31,7 @@ void main() {
 
 	double lastResult = 0;
 	int runCalculator = 1; 
+	
 	while (runCalculator) {
 		char input[100] = { NULL };
 		char result[100] = { NULL };
@@ -39,6 +40,7 @@ void main() {
 		double calResult = 0;
 		int digitCounter = 0;
 		int operantCounter = 0; 
+		//double temp = 0;
 
 		fgets(input, sizeof(input), stdin);
 		//printf("input=%s", input);
@@ -54,8 +56,7 @@ void main() {
 				result[j] = input[i];
 				j++;
 			}
-		}
-
+		} 
 		//double strtod(const char *str, char **endptr)       
 		char *str = result;
 		char *p = str;
@@ -66,14 +67,14 @@ void main() {
 				digitCounter++;
 				p++;
 				continue;
-			} 
-			double isDigit = strtod(p, &p);
-			if (isdigit(isDigit)) { // Upon finding a digit, ... // || *p == '-'
+			}  
+			//temp = strtod(p, &p);
+			if (isdigit(*p)) { // Upon finding a digit, ... // || *p == '-'
 				number[digitCounter] = strtod(p, &p); // Read a number, ...
 				//printf("%lf", number[digitCounter]); // and print it.
 				digitCounter++;
 			}
-			else { // Otherwise, move on to the next character.				
+		 	else { // Otherwise, move on to the next character.				
 				if (*p == '+' || *p == '-' || *p == '*' || *p == '/' || *p == '%' || *p == '^') {
 					operant[operantCounter] = *p;
 					//printf(" %c ", *p); // and print it.

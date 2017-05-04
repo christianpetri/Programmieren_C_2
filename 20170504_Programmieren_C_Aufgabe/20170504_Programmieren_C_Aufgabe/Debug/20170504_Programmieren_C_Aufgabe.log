@@ -1,0 +1,3 @@
+﻿  Source.cpp
+c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(11): error C3863: array type 'char [100]' is not assignable
+c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(12): error C3863: array type 'char [100]' is not assignable
