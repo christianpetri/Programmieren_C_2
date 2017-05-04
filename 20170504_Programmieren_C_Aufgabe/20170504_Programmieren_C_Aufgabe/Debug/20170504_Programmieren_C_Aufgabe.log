@@ -1,10 +1,8 @@
 ﻿  Source.cpp
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(10): warning C4018: '<': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(11): warning C4018: '<': signed/unsigned mismatch
+c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(21): warning C4018: '>': signed/unsigned mismatch
+c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(34): warning C4018: '<': signed/unsigned mismatch
 c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(35): warning C4018: '<': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(38): warning C4018: '>': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(52): warning C4018: '<': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(53): warning C4018: '<': signed/unsigned mismatch
-c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(80): warning C4018: '<': signed/unsigned mismatch
+c:\users\chris\documents\github\programmieren_c_2\20170504_programmieren_c_aufgabe\20170504_programmieren_c_aufgabe\source.cpp(66): warning C4018: '<': signed/unsigned mismatch
   20170504_Programmieren_C_Aufgabe.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\20170504_Programmieren_C_Aufgabe\20170504_Programmieren_C_Aufgabe\Debug\20170504_Programmieren_C_Aufgabe.exe
   20170504_Programmieren_C_Aufgabe.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\20170504_Programmieren_C_Aufgabe\20170504_Programmieren_C_Aufgabe\Debug\20170504_Programmieren_C_Aufgabe.pdb (Partial PDB)

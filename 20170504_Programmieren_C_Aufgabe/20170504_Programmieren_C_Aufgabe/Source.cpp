@@ -1,38 +1,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-
+ 
 //Schreibe ein Programm, das mehrere eingegebene Sätze
 //alphabetisch sortiert.
  
-char* bubblesort(char *array, size_t length) {
-	for (int i = 0; i < length - 1; ++i) {
-		for (int j = 0; j < length - i - 1; ++j) {
-			if (array[j] > array[j + 1])
-			{
-				char tmp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = tmp;
-
-				printf("\n%c", array[j]);
-			}
-		}
-	}
-	return array;
-}
- 
 int main() {
-	const size_t buffer_size= 100;
-	char buffer[buffer_size] = {};
-	char* satz[100] = {NULL};
-	size_t length = 0;
-	puts("How many sentencens do you whant?");
+	const size_t buffer_size= 100; //Buffer size
+	char buffer[buffer_size] = {}; //declare and intit buffer
+	char* satz[100] = {NULL}; // declare and init the satz pointer array
+	size_t length = 0; // for each iteration store the the string length of the buffer + 1
+	puts("How many sentencens do you want?");
 	unsigned int numberOfArrays = 0;
 	int maxLength = 0;
-	scanf_s(" %i", &numberOfArrays);
+	scanf_s(" %i", &numberOfArrays); //ask the user how many sentences he wants to process
 	getchar();
-	for (int i = 0; i < numberOfArrays; i++) {
+	for (int i = 0; i < numberOfArrays; i++) { //get user input and store it
 		fgets(buffer, sizeof(buffer), stdin);
 		length = strnlen_s(buffer,buffer_size)+1;
 		if (length > maxLength)
@@ -45,13 +28,19 @@ int main() {
 		//printf("%s", satz[i]); 
 		//printf("\n%d\n", i);
 	}
-	printf("%i", maxLength);
-	//bubblesort(*satz, 2);
-	//calloc 
+	//printf("%i", maxLength);
+	//Bubble sort the satz pointer array
 	for (int q = 0; q < maxLength; q++) {
 		for (int j = 0; j < numberOfArrays - 1; j++) {
-			for (int i = 0; i < numberOfArrays - j - 1; i++) { //- j
-				for (int w = 0; w < q ; w++) {
+			for (int i = 0; i < numberOfArrays - j - 1; i++) {
+				if (q == 0) { //sort the arrays
+					if (satz[i][0] > satz[i + 1][0]) {
+						char *temp = satz[i];
+						satz[i] = satz[i + 1];
+						satz[i + 1] = temp;
+					}
+				}
+				for (int w = 0; w < q ; w++) { //sort the strings
 					if (satz[i][w] == satz[i+1][w]) {
 						if (satz[i][w+1] > satz[i + 1][w+1]) {
 							char *temp = satz[i];
@@ -62,22 +51,18 @@ int main() {
 					else {
 						break;
 					}
-				}
-				if (q == 0) {
-					if (satz[i][0] > satz[i + 1][0]) {
-						char *temp = satz[i];
-						satz[i] = satz[i + 1];
-						satz[i + 1] = temp;
-					}
-				}
-				
+				} 
 			}
+			/*
+			puts("------------"); //see the sorting action 
+			for (int g = 0; g < numberOfArrays; g++) {
+				printf("%s", satz[g]); 
+			}
+			*/
 		}
 	} 
 	puts("------------"); 
-	for (int i = 0; i < numberOfArrays; i++) {
-		//printf("%d\n", strlen(satz[i])-1);
-		//printf("%c\n", satz[i][0]);
+	for (int i = 0; i < numberOfArrays; i++) { //print the result and free the memory
 		printf("%s", satz[i]);
 		free(satz[i]);
 		satz[i] = NULL;
