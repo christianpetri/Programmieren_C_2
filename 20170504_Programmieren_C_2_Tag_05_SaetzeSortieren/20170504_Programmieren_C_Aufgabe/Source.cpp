@@ -11,9 +11,9 @@ int main() {
 	char* satz[100] = {NULL}; // declare and init the satz pointer array
 	size_t length = 0; // for each iteration store the the string length of the buffer + 1
 	int maxLength = 0;
-	puts("How many sentencens do you want?"); 
+	puts("How many sentencens do you want? (max 100 sentencens and max chracters per sentence is 100"); 
 	unsigned int numberOfArrays = 0; //delcare and intit numberOfArrays
-	scanf_s(" %i", &numberOfArrays); //ask the user how many sentences he wants to process and store it
+	scanf_s(" %i", &numberOfArrays); //ask the user how many sentences the user wants to process and store it
 	getchar();
 	for (int i = 0; i < numberOfArrays; i++) { //get user input and store it
 		fgets(buffer, sizeof(buffer), stdin);
