@@ -1,0 +1,85 @@
+Uebung zum Stoff Array und Pointer:
+----------------------------------
+
+Es soll ein Rechnerprogramm entwickelt werden mit den folgenden Eigenschaften:
+- unterst¸tzt positive und negative ganze Zahlen und Gleitkommazahlen
+- erlaubt Eingaben von mehrfachen Operationen wie z.B. '1.5 + 4.1 -7/7'
+- mit dem ^ Operator werden Exponentialrechnungen ausgef¸hrt z.B. '2 ^ 3' gibt 8
+- ein vorhergehendes Resultat kann mit '=' am Anfang des Input Strings in die
+  Rechnung einfliessen, z.B. wenn ein fr¸heres Resultat 3 war dann gibt '=*2 + 7' gleich 15
+- die Eingabe '2 + 2*4 ñ 4*-2.22' wird als ((2 + 2)*4 -4) *(-2.22) gerechnet.
+
+Wo mˆglich soll anstelle von Array-Notation Pointer-Notation verwendet werden: arr[i] -> *(arr + i)
+
+Konzept:
+------
+1. Zuerst wird ein Input String eingelesen, welcher vom Benutzer eingegeben wurde.
+2. Das Programm wird beendet, wenn der Benutzer 'ende' eingibt.
+3. Alle Spaces im Input String werden vor der Verarbeitung entfernt.
+4. Das erste Zeichen wird auf '=' gepr¸ft und falls das zutrifft, dann wird das vorangegangene Resultat
+   in die Rechnung einbezogen.
+
+
+Implementation 1:
+----------------
+Zuerst wird die Rechnung eingelesen. Die Groesse der Rechnung ist auf 200 (siehe RECHNUNGLEN)
+begrenzt. Die fgets Funktion wird mehrmals aufgerufen, wenn der input_data Buffer kleiner (siehe BUFFLEN)
+als 200 ist. Nach dem Einlesen werden alle Leerzeichen entfernt.
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+
+#define BUFFLEN 20
+#define RECHNUNGLEN 200
+
+void main() 
+{
+
+  char input_data[BUFFLEN];
+  char rechnung[RECHNUNGLEN] = {0};;
+  bool rechnung_gelesen = false;
+
+
+  // Die Rechnung einlesen
+  printf("Gib die Rechnung ein (max. 200 Zeichen)\n");
+  do
+	 {
+		fgets(input_data, BUFFLEN, stdin);
+		if ('\n' == *(input_data + strlen(input_data)-1))
+		  {
+			 // eine Rechnung wurde erkannt ('\n' am Ende von input_data) -> entferne '\n'
+			 *(input_data + strlen(input_data)-1) = '\0';
+			 strcat(rechnung, input_data);
+			 rechnung_gelesen = true;
+		  }
+		else 
+		  {
+			 // die eingelesene Rechnung ist noch nicht vollstÅ‰ndig
+			 strcat(rechnung, input_data);
+		  }
+	 }
+  while (!rechnung_gelesen);
+  printf("Rechnung: %s\n", rechnung);
+
+  // Leerzeichen entfernen
+  char *pch;
+  while ((pch=strrchr(rechnung, ' ')) != 0 )
+	 {
+		// letztes Leerzeichen in rechnung mit '\0' ersetzen und 
+		// den Rest von rechnung (ohne Leerzeichen) wieder anfuegen
+		*pch = '\0';
+		strcat(rechnung, pch+1);
+	 }
+  printf("Rechung ohne Leerzeichen: %s\n", rechnung);
+}
+
+
+Implementation 2:
+----------------
+
+Im naechsten Schritt sollen die Operanden (-4.5, +3, ..) und die Operatoren (+, -, *, ..)
+aus dem String (rechnung[]) extrahiert werden. Um Zahlen aus Zeichenketten zu extrahieren
+gibt es in stdlib.h die String Umwandlungsfunktionen atof.../ strtod... (siehe Stoff: String)
+
