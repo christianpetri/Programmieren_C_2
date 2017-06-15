@@ -8,15 +8,9 @@ void foo(int **const p) {
 }
 
 int main() { 
-	int i = 0;
+	int i = 10;
 	int *p = &i;
-	printf("%d", i);
-	{
-		int i = 5;
-	}
-	printf("%d", i);
-	printf("%d ", *p);
-	//(&p);
+	foo(&p); 
 	printf("%d ", *p);
 	printf("%d ", *p);
 	getchar();
