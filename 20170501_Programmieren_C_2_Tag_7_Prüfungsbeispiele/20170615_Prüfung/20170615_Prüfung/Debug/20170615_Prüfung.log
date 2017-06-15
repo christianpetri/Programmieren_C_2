@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\chris\documents\github\programmieren_c_2\20170501_programmieren_c_2_tag_7_prüfungsbeispiele\20170615_prüfung\20170615_prüfung\source.cpp(20): warning C4018: '<': signed/unsigned mismatch
+c:\users\chris\documents\github\programmieren_c_2\20170501_programmieren_c_2_tag_7_prüfungsbeispiele\20170615_prüfung\20170615_prüfung\source.cpp(24): warning C4018: '>': signed/unsigned mismatch
+c:\users\chris\documents\github\programmieren_c_2\20170501_programmieren_c_2_tag_7_prüfungsbeispiele\20170615_prüfung\20170615_prüfung\source.cpp(13): warning C4101: 'temp': unreferenced local variable
+  20170615_Prüfung.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\20170501_Programmieren_C_2_Tag_7_Prüfungsbeispiele\20170615_Prüfung\20170615_Prüfung\Debug\20170615_Prüfung.exe
+  20170615_Prüfung.vcxproj -> C:\Users\chris\Documents\GitHub\Programmieren_C_2\20170501_Programmieren_C_2_Tag_7_Prüfungsbeispiele\20170615_Prüfung\20170615_Prüfung\Debug\20170615_Prüfung.pdb (Partial PDB)
